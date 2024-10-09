@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calc(){
+            let exp = document.getElementById("exp");
+            exp.value = eval(exp.value);
+        }
+        function inputValue(e) {
+            let exp = document.getElementById("exp");
+            if (exp.value == 0){
+                exp.value = null;
+            }
+            exp.value += e.value;
+        }
+        function reset() {
+            let exp = document.getElementById("exp");
+            exp.value ='0'
+        }
+        function backspace() {
+            let exp = document.getElementById("exp");
+            exp.value = exp.value.slice(0,-1);
+        }
+    </script>
+</head>
+<body>
+    <h3>계산기 만들기</h3>
+    <hr>
+    <input type ="text" value ="0" id ="exp" style ="width: 220px;">
+    <p> 
+        <input type ="button" value ="BACK"style ="width: 50px;" onclick ="backspace()" >
+        <input type ="button" value ="CE" style ="width: 50px;" onclick ="reset();">
+        <input type ="button" value ="C" style ="width: 50px;" onclick ="reset();">
+        <input type ="button" value ="=" style ="width: 50px;" onclick ="calc();" >
+    </p>
+    <p> 
+        <input type ="button" value ="7" style ="width: 50px;" onclick ="inputValue(this)">
+        <input type ="button" value ="8" style ="width: 50px;" onclick ="inputValue(this)">
+        <input type ="button" value ="9" style ="width: 50px;" onclick ="inputValue(this)">
+        <input type ="button" value ="/" style ="width: 50px;" onclick ="inputValue(this)">
+    </p>
+    <p> 
+        <input type ="button" value ="4" style ="width: 50px;" onclick ="inputValue(this)">
+        <input type ="button" value ="5" style ="width: 50px;" onclick ="inputValue(this)">
+        <input type ="button" value ="6" style ="width: 50px;" onclick ="inputValue(this)">
+        <input type ="button" value ="*" style ="width: 50px;" onclick ="inputValue(this)">
+    </p>
+    <p> 
+        <input type ="button" value ="1" style ="width: 50px;" onclick ="inputValue(this)">
+        <input type ="button" value ="2" style ="width: 50px;" onclick ="inputValue(this)">
+        <input type ="button" value ="3" style ="width: 50px;" onclick ="inputValue(this)">
+        <input type ="button" value ="-" style ="width: 50px;" onclick ="inputValue(this)">
+    </p>
+    <p> 
+        <input type ="button" value ="0" style ="width: 50px;" onclick ="inputValue(this)">
+        <input type ="button" value ="+" style ="width: 50px;" onclick ="inputValue(this)">
+        <input type ="button" value ="NONE" style ="width: 50px;" >
+        <input type ="button" value ="NONE" style ="width: 50px;" >
+    </p>
+</body>
+</html>
