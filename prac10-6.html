@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습 문제 10-6</title>
+    <style>
+        #clock {
+            font-size: 24px;
+            border: 1px solid black;
+            padding: 10px;
+            cursor: pointer;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<h3>div 태그에 시계 만들기</h3>
+<p>시계를 클릭하면 시계가 멈추고 다시 클릭하면 현재 시간부터 시계가 다시 가기 시작한다.</p>
+<div id="clock">시계 로딩 중...</div>
+<script>
+    let clockInterval;
+    let isRunning = true;
+    function updateClock() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        const ampm = hours >= 12 ? '오후' : '오전';
+        const displayHours = hours % 12 || 12; 
+        const timeString = `${ampm} ${displayHours}:${minutes}:${seconds}`;
+        document.getElementById('clock').textContent = timeString;
+    }
+
+    function startClock() {
+        clockInterval = setInterval(updateClock, 1000); 
+    }
+
+ 
+    function stopClock() {
+        clearInterval(clockInterval); 
+    }
+
+    document.getElementById('clock').addEventListener('click', function() {
+        if (isRunning) {
+            stopClock(); 
+        } else {
+            startClock(); 
+        }
+        isRunning = !isRunning; 
+    });
+
+    updateClock(); 
+    startClock(); 
+</script>
+</body>
+</html>
