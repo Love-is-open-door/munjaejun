@@ -9,25 +9,25 @@ let totalPrice = 0;
 for (int i = 0; i < cart.length; i++) {
     totalPrice += cart[i].price * cart[i].quantity;
 }
-console.log('Total Price: ${totalPrice}');
+console.log(`Total Price: ${totalPrice}`);
 
 totalPrice = 0;
 cart.forEach(good => totalPrice += good.price * good.quantity);
-console.log('Total Price: ${totalPrice}');
+console.log(`Total Price: ${totalPrice}`);
 
 totalPrice = cart.reduce((a, goods) => (a + goods.price * goods.quantity));
-console.log('Total Price: ${totalPrice}');
+console.log(`Total Price: ${totalPrice}`);
 
 const itemTotals = cart.map(goods => ({
     item: goods.item,
     total: goods.price * goods.quantity
 }));
-console.log('제품별 금액: ${totalPrice}');
+console.log(`제품별 금액: ${totalPrice}`);
 
 const names = ['alice', 'bob', 'charlie'];
 
 const upperCasedNames = names.map(n => n.toUpperCase());
-console.log('upperCaseNames = ${upperCasedNames}');
+console.log(`upperCaseNames = ${upperCasedNames}`);
 
 const captialStartNames = names.map (n => n[0].toUpperCase() + );
-console.log('upperCasedNames = ${captialStartnames}');
+console.log(`upperCasedNames = ${captialStartnames}`);
